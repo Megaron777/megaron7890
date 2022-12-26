@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SPEED TEST BY MEGARON</title>
+	<font color="red">
+	<h1>SPEED TEST BY MEGARON</h1>
+</font>
+</head>
+<body>
+	<link rel="stylesheet"
+           href="https://fonts.googleapis.com/css?family=Tangerine">
+          <link rel="stylesheet" type="text/css" href="speedtest.css">
+
+          <div class="result">
+          	<font color="brown">
+          	<h2>Your internet speed is...</h2>
+          	<div class="panel" id="results">
+          		Still waiting for the measurements.
+          	</div>
+          </div>
+          <script>
+          	var file_size = 127,
+          	    start = performance.now(),
+          	    end = 0,
+          	    time = 0,
+          	    xmlhttp = new XMLHttpRequest(),
+          	    result = 0;
+          	 xmlhttp.onreadystatechange = function(){
+          	 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+          	 		end = performance.now();
+          	 		time = (end - start)/1000;
+          	 		result = (file_size/time/1000*8).toFixed(2);
+          	 		$ ("#results").html(result+ 'MBPS');
+          	 	}
+          	 }
+          	 xmlhttp.open('GET', 'https://codepen.io/informiho/pen/CuGJI.html',true);
+          	 xmlhttp.send();
+          </script>
+          <script
+          	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+          </script>
+</body>
+</html>
